@@ -399,6 +399,24 @@ namespace encodeex
                 m_cycleProgresses.add(plcCycleProgress);
             }
             layoutDiv10.update();
+
+            FCLayoutDiv layoutDiv11 = new FCLayoutDiv();
+            layoutDiv11.setAutoWrap(true);
+            layoutDiv11.setDock(FCDockStyle.Fill);
+            layoutDiv11.setLayoutStyle(FCLayoutStyle.LeftToRight);
+            getTabPage("TabPage14").addView(layoutDiv11);
+            for (int i = 0; i < 200; i++)
+            {
+                PLCSwitch pSwitch = new PLCSwitch();
+                layoutDiv11.addView(pSwitch);
+                pSwitch.setSize(new FCSize(60, 30));
+                pSwitch.setMargin(new FCPadding(20, 20, 20, 20));
+                pSwitch.m_backColor = FCColor.rgb(200, 200, 200);
+                pSwitch.m_unCheckedColor = FCColor.rgb(150, 150, 150);
+                pSwitch.m_checkedColor = m_colors[i % m_colors.Length];
+                pSwitch.setChecked(m_rd.Next(0, 3) != 0);
+            }
+            layoutDiv11.update();
         }
 
         public void loadSvgFile(FCSvg svg, String fileName)

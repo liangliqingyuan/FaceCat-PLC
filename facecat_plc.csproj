@@ -83,6 +83,7 @@
     <Compile Include="UI\PLCImageButton.cs" />
     <Compile Include="UI\PLCSignal.cs" />
     <Compile Include="UI\PLCSpin.cs" />
+    <Compile Include="UI\PLCSwitch.cs" />
     <Compile Include="UI\PLCThermometer.cs" />
     <Compile Include="UI\PLCSlice.cs" />
     <Compile Include="UI\PLCVProgress.cs" />
