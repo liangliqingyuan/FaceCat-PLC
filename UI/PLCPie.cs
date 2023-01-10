@@ -14,7 +14,7 @@ namespace FaceCat
         /// </summary>
         public PLCPie()
         {
-            setSize(new FCSize(100, 100));
+            setSize(new FCSize(200, 200));
         }
 
         /// <summary>
@@ -72,15 +72,15 @@ namespace FaceCat
                     PLCPieItem item = m_items.get(i);
                     float sweepAngle = (float)(item.m_value / maxValue * 360);
                     paint.fillPie(item.m_color, eRect, startAngle, sweepAngle);
-                    int x1 = (int)(oX + (m_pieRadius) * Math.Cos((startAngle + sweepAngle / 2) * 3.14 / 180));
-                    int y1 = (int)(oY + (m_pieRadius) * Math.Sin((startAngle + sweepAngle / 2) * 3.14 / 180));
-                    int x2 = (int)(oX + (m_textRadius) * Math.Cos((startAngle + sweepAngle / 2) * 3.14 / 180));
-                    int y2 = (int)(oY + (m_textRadius) * Math.Sin((startAngle + sweepAngle / 2) * 3.14 / 180));
+                    int x1 = (int)(oX + (m_pieRadius) * Math.Cos((startAngle + sweepAngle / 2) * 3.1415926 / 180));
+                    int y1 = (int)(oY + (m_pieRadius) * Math.Sin((startAngle + sweepAngle / 2) * 3.1415926 / 180));
+                    int x2 = (int)(oX + (m_textRadius) * Math.Cos((startAngle + sweepAngle / 2) * 3.1415926 / 180));
+                    int y2 = (int)(oY + (m_textRadius) * Math.Sin((startAngle + sweepAngle / 2) * 3.1415926 / 180));
                     String itemText = FCTran.getValueByDigit(item.m_value, 2);
                     FCSize itemTextSize = paint.textSize(itemText, getFont());
                     paint.drawLine(FCColor.Text, 1, 0, x1, y1, x2, y2);
-                    int x3 = (int)(oX + (m_textRadius + itemTextSize.cx / 2 + 5) * Math.Cos((startAngle + sweepAngle / 2) * 3.14 / 180));
-                    int y3 = (int)(oY + (m_textRadius + itemTextSize.cy / 2 + 5) * Math.Sin((startAngle + sweepAngle / 2) * 3.14 / 180));
+                    int x3 = (int)(oX + (m_textRadius + itemTextSize.cx / 2 + 5) * Math.Cos((startAngle + sweepAngle / 2) * 3.1415926 / 180));
+                    int y3 = (int)(oY + (m_textRadius + itemTextSize.cy / 2 + 5) * Math.Sin((startAngle + sweepAngle / 2) * 3.1415926 / 180));
                     FCDraw.drawText(paint, itemText, FCColor.Text, getFont(), x3 - itemTextSize.cx / 2, y3 - itemTextSize.cy / 2);
                     startAngle += sweepAngle;
                 }

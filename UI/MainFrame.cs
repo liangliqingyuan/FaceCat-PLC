@@ -35,7 +35,9 @@ namespace encodeex
 
         public ArrayList<PLCVProgress> m_vProgresses = new ArrayList<PLCVProgress>();
 
-        public ArrayList<FCChart> m_charts = new ArrayList<FCChart>();
+        public ArrayList<FCChart> m_lineCharts = new ArrayList<FCChart>();
+
+        public ArrayList<FCChart> m_histogramCharts = new ArrayList<FCChart>();
 
         public ArrayList<PLCCycleProgress> m_cycleProgresses = new ArrayList<PLCCycleProgress>();
 
@@ -380,7 +382,7 @@ namespace encodeex
                 ps.setColor(m_colors[i % m_colors.Length]);
                 ps.setWidth(2);
                 chartDiv.addShape(ps);
-                m_charts.add(chart);
+                m_lineCharts.add(chart);
             }
             layoutDiv9.update();
 
@@ -439,6 +441,44 @@ namespace encodeex
                 }
             }
             layoutDiv12.update();
+
+            FCLayoutDiv layoutDiv13 = new FCLayoutDiv();
+            layoutDiv13.setAutoWrap(true);
+            layoutDiv13.setDock(FCDockStyle.Fill);
+            layoutDiv13.setLayoutStyle(FCLayoutStyle.LeftToRight);
+            getTabPage("TabPage16").addView(layoutDiv13);
+            for (int i = 0; i < 20; i++)
+            {
+                FCChart chart = new FCChart();
+                layoutDiv13.addView(chart);
+                chart.setHScalePixel(21);
+                chart.setSize(new FCSize(400, 200));
+                ChartDiv chartDiv = chart.addDiv();
+                chartDiv.setBackColor(FCColor.rgb(255, 255, 255));
+                chartDiv.getLeftVScale().setScaleColor(FCColor.rgb(0, 0, 0));
+                chartDiv.getLeftVScale().setTextColor(FCColor.rgb(0, 0, 0));
+                chartDiv.getHScale().setScaleColor(FCColor.rgb(0, 0, 0));
+                chartDiv.getHScale().setTextColor(FCColor.rgb(0, 0, 0));
+
+                chartDiv.getHScale().setDateColor(DateType.Day, FCColor.rgb(0, 0, 0));
+                chartDiv.getHScale().setDateColor(DateType.Hour, FCColor.rgb(0, 0, 0));
+                chartDiv.getHScale().setDateColor(DateType.Millisecond, FCColor.rgb(0, 0, 0));
+                chartDiv.getHScale().setDateColor(DateType.Minute, FCColor.rgb(0, 0, 0));
+                chartDiv.getHScale().setDateColor(DateType.Month, FCColor.rgb(0, 0, 0));
+                chartDiv.getHScale().setDateColor(DateType.Second, FCColor.rgb(0, 0, 0));
+                chartDiv.getHScale().setDateColor(DateType.Year, FCColor.rgb(0, 0, 0));
+                chartDiv.getHScale().setHScaleType(HScaleType.Number);
+
+                FCDataTable dataSource = chart.getDataSource();
+                dataSource.addColumn(0);
+                BarShape bs = new BarShape();
+                bs.setFieldName(0);
+                bs.setUpColor(m_colors[i % m_colors.Length]);
+                bs.setDownColor(m_colors[i % m_colors.Length]);
+                chartDiv.addShape(bs);
+                m_histogramCharts.add(chart);
+            }
+            layoutDiv13.update();
         }
 
         public void loadSvgFile(FCSvg svg, String fileName)
@@ -467,9 +507,9 @@ namespace encodeex
                     PLCThermometer thermometer = m_thermometers.get(i);
                     thermometer.m_value = m_rd.Next((int)thermometer.m_minValue, (int)thermometer.m_maxValue);
                 }
-                for (int i = 0; i < m_charts.size(); i++)
+                for (int i = 0; i < m_lineCharts.size(); i++)
                 {
-                    FCChart chart = m_charts.get(i);
+                    FCChart chart = m_lineCharts.get(i);
                     FCDataTable dataSource = chart.getDataSource();
                     int dataSize = dataSource.getRowsCount();
                     double lastValue = 0;
@@ -478,6 +518,13 @@ namespace encodeex
                         lastValue = dataSource.get2(dataSize - 1, 0);
                     }
                     dataSource.set(dataSize + 1, 0, lastValue + (-5 + m_rd.Next(0, 10)));
+                }
+                for (int i = 0; i < m_histogramCharts.size(); i++)
+                {
+                    FCChart chart = m_histogramCharts.get(i);
+                    FCDataTable dataSource = chart.getDataSource();
+                    int dataSize = dataSource.getRowsCount();
+                    dataSource.set(dataSize + 1, 0, m_rd.Next(100, 200));
                 }
                 for (int i = 0; i < m_cycleProgresses.size(); i++)
                 {
