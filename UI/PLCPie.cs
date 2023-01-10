@@ -76,7 +76,7 @@ namespace FaceCat
                     int y1 = (int)(oY + (m_pieRadius) * Math.Sin((startAngle + sweepAngle / 2) * 3.14 / 180));
                     int x2 = (int)(oX + (m_textRadius) * Math.Cos((startAngle + sweepAngle / 2) * 3.14 / 180));
                     int y2 = (int)(oY + (m_textRadius) * Math.Sin((startAngle + sweepAngle / 2) * 3.14 / 180));
-                    String itemText = FCTran.getValueByDigit(item.m_value, 2) + "%";
+                    String itemText = FCTran.getValueByDigit(item.m_value, 2);
                     FCSize itemTextSize = paint.textSize(itemText, getFont());
                     paint.drawLine(FCColor.Text, 1, 0, x1, y1, x2, y2);
                     int x3 = (int)(oX + (m_textRadius + itemTextSize.cx / 2 + 5) * Math.Cos((startAngle + sweepAngle / 2) * 3.14 / 180));
