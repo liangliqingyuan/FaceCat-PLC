@@ -417,6 +417,28 @@ namespace encodeex
                 pSwitch.setChecked(m_rd.Next(0, 3) != 0);
             }
             layoutDiv11.update();
+
+            FCLayoutDiv layoutDiv12 = new FCLayoutDiv();
+            layoutDiv12.setAutoWrap(true);
+            layoutDiv12.setDock(FCDockStyle.Fill);
+            layoutDiv12.setLayoutStyle(FCLayoutStyle.LeftToRight);
+            getTabPage("TabPage15").addView(layoutDiv12);
+            for (int i = 0; i < 200; i++)
+            {
+                PLCPie pie = new PLCPie();
+                layoutDiv12.addView(pie);
+                pie.setSize(new FCSize(250, 250));
+                int pItemSize = m_rd.Next(3, 10);
+                for (int j = 0; j < pItemSize; j++)
+                {
+                    PLCPieItem item = new PLCPieItem();
+                    item.m_text = "ÏîÄ¿" + j.ToString();
+                    item.m_value = m_rd.Next(10, 100);
+                    pie.m_items.add(item);
+                    item.m_color = m_colors[j % m_colors.Length];
+                }
+            }
+            layoutDiv12.update();
         }
 
         public void loadSvgFile(FCSvg svg, String fileName)
