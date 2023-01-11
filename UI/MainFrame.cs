@@ -439,6 +439,10 @@ namespace encodeex
                     pie.m_items.add(item);
                     item.m_color = m_colors[j % m_colors.Length];
                 }
+                if (m_rd.Next(0, 2) == 0)
+                {
+                    pie.m_innerRadius = 45;
+                }
             }
             layoutDiv12.update();
 

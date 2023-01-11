@@ -23,6 +23,11 @@ namespace FaceCat
         public int m_pieRadius = 70;
 
         /// <summary>
+        /// 内部圆环
+        /// </summary>
+        public int m_innerRadius = 0;
+
+        /// <summary>
         /// 文字的半径
         /// </summary>
         public int m_textRadius = 80;
@@ -84,6 +89,11 @@ namespace FaceCat
                     FCDraw.drawText(paint, itemText, FCColor.Text, getFont(), x3 - itemTextSize.cx / 2, y3 - itemTextSize.cy / 2);
                     startAngle += sweepAngle;
                 }
+            }
+            if (m_innerRadius > 0)
+            {
+                FCRect iRect = new FCRect(oX - m_innerRadius, oY - m_innerRadius, oX + m_innerRadius, oY + m_innerRadius);
+                paint.fillEllipse(getBackColor(), iRect);
             }
             paint.drawEllipse(getBorderColor(), 1, 0, eRect);
         }
