@@ -483,6 +483,30 @@ namespace encodeex
                 m_histogramCharts.add(chart);
             }
             layoutDiv13.update();
+
+            FCLayoutDiv layoutDiv14 = new FCLayoutDiv();
+            layoutDiv14.setAutoWrap(true);
+            layoutDiv14.setDock(FCDockStyle.Fill);
+            layoutDiv14.setLayoutStyle(FCLayoutStyle.LeftToRight);
+            getTabPage("TabPage17").addView(layoutDiv14);
+            for (int i = 0; i < 200; i++)
+            {
+                PLCLEDNum led = new PLCLEDNum();
+                layoutDiv14.addView(led);
+                led.setMargin(new FCPadding(5, 5, 5, 5));
+                led.setTextColor(m_colors[i % m_colors.Length]);
+                led.m_showNumber = 'A';
+                led.m_borderColor = FCColor.None;
+                foreach (char ch in PLCLEDNum.m_numbers.Keys)
+                {
+                    if (m_rd.Next(0, PLCLEDNum.m_numbers.Count) == 0)
+                    {
+                        led.m_showNumber = ch;
+                    }
+                }
+                led.setSize(new FCSize(40, 60));
+            }
+            layoutDiv14.update();
         }
 
         public void loadSvgFile(FCSvg svg, String fileName)

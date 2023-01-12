@@ -81,6 +81,7 @@
     <Compile Include="UI\PLCCycleProgress.cs" />
     <Compile Include="UI\PLCHProgress.cs" />
     <Compile Include="UI\PLCImageButton.cs" />
+    <Compile Include="UI\PLCLEDNum.cs" />
     <Compile Include="UI\PLCPie.cs" />
     <Compile Include="UI\PLCSignal.cs" />
     <Compile Include="UI\PLCSpin.cs" />
