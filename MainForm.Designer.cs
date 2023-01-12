@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 using System;
-namespace encodeex
+namespace FaceCat
 {
     partial class MainForm {
         /// <summary>

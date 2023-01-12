@@ -9,7 +9,7 @@ using System.IO;
 using System.Drawing.Imaging;
 using FaceCat;
 
-namespace encodeex
+namespace FaceCat
 {
     public partial class MainForm : FCForm {
         public MainForm() {

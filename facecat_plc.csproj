@@ -69,6 +69,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Example\CycleProgressDiv.cs" />
+    <Compile Include="Example\HisChartDiv.cs" />
+    <Compile Include="Example\HProgressDiv.cs" />
+    <Compile Include="Example\ImageButton.cs" />
+    <Compile Include="Example\InstrumentDiv.cs" />
+    <Compile Include="Example\LineChartDiv.cs" />
+    <Compile Include="Example\SignalDiv.cs" />
+    <Compile Include="Example\SpinDiv.cs" />
+    <Compile Include="Example\SwitchDiv.cs" />
+    <Compile Include="Example\ThermometerDiv.cs" />
+    <Compile Include="Example\VProgressDiv.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -115,9 +126,60 @@
     </Compile>
     <Compile Include="UI\KeyBoard\PLCKeyBoard.cs" />
     <Compile Include="UI\KeyBoard\PLCKeyButton.cs" />
-    <Compile Include="UI\MainFrame.cs" />
+    <Compile Include="Example\MainFrame.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="config\facecat_plc\icons\add-item.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\avocado.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\devices.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\drumstick.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\keyboard.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\message-security.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\microscope-one.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\nmr.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\oscillator.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\pay-code-one.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\printer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\rectangle-x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\report.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\robot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\shovel-one.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\stack-light.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\icons\switch-one.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="config\facecat_plc\image\cs.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -137,6 +199,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="config\facecat_plc\svg\robot-two.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\facecat_plc\Apps.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

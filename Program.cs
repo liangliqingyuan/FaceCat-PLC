@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using FaceCat;
 using System.Diagnostics;
 
-namespace encodeex
+namespace FaceCat
 {
     static class Program {
         /// <summary>
